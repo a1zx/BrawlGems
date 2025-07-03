@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #fafafa;
+  color: #222;
+}
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px;
+}
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+h1 {
+  margin: 0 0 10px;
+}
+.search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+}
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card h3 {
+  margin-top: 10px;
+}
+.card button {
+  margin-top: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.card button:hover {
+  background: #0056b3;
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 400px;
+  text-align: center;
+}
+.modal-content img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+.modal-content select, .modal-content button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.order-btn {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+.order-btn:hover {
+  background-color: #0056b3;
+}
+.success {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: none;
+  background: rgba(0,0,0,0.7);
+  z-index: 20;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.check-circle {
+  background: white;
+  color: green;
+  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.confetti {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+}
