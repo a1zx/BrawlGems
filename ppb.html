@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhoneHaus</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f0f0f0;
+    }
+    header {
+      background: #d3d3d3;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .menu, .circle {
+      width: 25px;
+      height: 25px;
+      background: black;
+      border-radius: 50%;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+    .product {
+      background: white;
+      width: 45%;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .btn {
+      background: black;
+      color: white;
+      padding: 8px;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+    .modal, .success {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .modal select, .modal button {
+      margin: 10px 0;
+      padding: 10px;
+    }
+    .success {
+      color: green;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .confetti {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu"></div>
+    <h1>PhoneHaus</h1>
+    <div class="circle"></div>
+  </header>
+
+  <div class="products" id="products"></div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2 id="phoneName">Select Options</h2>
+      <select id="color">
+        <option>Black</option>
+        <option>Silver</option>
+        <option>Gold</option>
+      </select><br>
+      <select id="storage">
+        <option>128GB</option>
+        <option>256GB</option>
+        <option>512GB</option>
+      </select><br>
+      <button onclick="order()">Order</button>
+    </div>
+  </div>
+
+  <div class="success" id="success">
+    ✅ Order Placed!
+    <canvas id="confetti" class="confetti"></canvas>
+  </div>
+
+  <script>
+    const phones = [
+      { name: "Samsung S24 Ultra", img: "https://i.imgur.com/1fWQ7A1.png" },
+      { name: "Xiaomi 14T", img: "https://i.imgur.com/Vy9zKhP.png" },
+      { name: "Xiaomi 14 Ultra", img: "https://i.imgur.com/Vcty6Rt.png" },
+      { name: "iPhone 16", img: "https://i.imgur.com/BIDJYq2.png" },
+      { name: "Samsung S24", img: "https://i.imgur.com/jqAQbo6.png" },
+      { name: "iPhone 16 Pro Max", img: "https://i.imgur.com/vLQyqPt.png" }
+    ];
+
+    const productsEl = document.getElementById("products");
+    const modal = document.getElementById("modal");
+    const phoneNameEl = document.getElementById("phoneName");
+    const success = document.getElementById("success");
+    const confettiCanvas = document.getElementById("confetti");
+
+    phones.forEach(phone => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.innerHTML = `<img src="${phone.img}" alt="${phone.name}"/><p>${phone.name}</p><div class='btn'>Quick ORDER</div>`;
+      div.onclick = () => {
+        phoneNameEl.textContent = phone.name;
+        modal.style.display = "flex";
+      };
+      productsEl.appendChild(div);
+    });
+
+    function order() {
+      modal.style.display = "none";
+      success.style.display = "flex";
+      fireConfetti();
+      setTimeout(() => success.style.display = "none", 3000);
+    }
+
+    // Simple confetti effect
+    function fireConfetti() {
+      const ctx = confettiCanvas.getContext("2d");
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+      const confetti = [];
+      for (let i = 0; i < 100; i++) {
+        confetti.push({
+          x: Math.random() * confettiCanvas.width,
+          y: Math.random() * confettiCanvas.height,
+          r: Math.random() * 5 + 2,
+          d: Math.random() * 2,
+          color: `hsl(${Math.random()*360},100%,50%)`
+        });
+      }
+      const animate = () => {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        confetti.forEach(c => {
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+          ctx.fillStyle = c.color;
+          ctx.fill();
+          c.y += c.d;
+        });
+        requestAnimationFrame(animate);
+      };
+      animate();
+    }
+  </script>
+</body>
+</html>
