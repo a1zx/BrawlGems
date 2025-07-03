@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhoneHaus</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="menu"></div>
+    <h1>PhoneHaus</h1>
+    <div class="circle"></div>
+  </header>
+
+  <div class="products" id="products"></div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2 id="phoneName">Select Options</h2>
+      <select id="color">
+        <option>Black</option>
+        <option>Silver</option>
+        <option>Gold</option>
+      </select><br>
+      <select id="storage">
+        <option>128GB</option>
+        <option>256GB</option>
+        <option>512GB</option>
+      </select><br>
+      <button onclick="order()">Order</button>
+    </div>
+  </div>
+
+  <div class="success" id="success">
+    ✅ Order Placed!
+    <canvas id="confetti" class="confetti"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
