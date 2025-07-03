@@ -1,7 +1,7 @@
 
 const phones = [
-  { name: "Samsung S24 Ultra", img: "https://i.ibb.co/JwgQjH5/s24-ultra.jpg" },
-  { name: "Xiaomi 14T", img: "https://i.ibb.co/vvZtNmw/xiaomi-14t.jpg" },
+  { name: "Samsung S24 Ultra", img: "https://ibb.co/JwgQjH5y" },
+  { name: "Xiaomi 14T", img: "https://ibb.co/vvZtNmwX" },
   { name: "iPhone 16 Pro Max", img: "https://i.ibb.co/3m7dsXL/iphone-16-pro-max.jpg" }
 ];
 
