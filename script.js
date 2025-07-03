@@ -1,11 +1,8 @@
 
 const phones = [
-  { name: "Samsung S24 Ultra", img: "https://i.imgur.com/1fWQ7A1.png" },
-  { name: "Xiaomi 14T", img: "https://i.imgur.com/Vy9zKhP.png" },
-  { name: "Xiaomi 14 Ultra", img: "https://i.imgur.com/Vcty6Rt.png" },
-  { name: "iPhone 16", img: "https://i.imgur.com/BIDJYq2.png" },
-  { name: "Samsung S24", img: "https://i.imgur.com/jqAQbo6.png" },
-  { name: "iPhone 16 Pro Max", img: "https://i.imgur.com/vLQyqPt.png" }
+  { name: "iPhone 16 pro max white", img: "https://ibb.co/3m7dsXL3" },
+  { name: "iPhone 16 pro max natural titanium", img: "https://ibb.co/vvZtNmwX" },
+  { name: "iPhone 16 pro max black titanium", img: "https://ibb.co/JwgQjH5y" },
 ];
 
 const productsEl = document.getElementById("products");
